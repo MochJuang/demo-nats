@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+  nats_streaming:
+    container_name: nats_streaming
+    image: nats-streaming
+    restart: always
+    command: "--config /nats/config/nats.config -sc /etc/nats/config/nats.config"
+    ports:
+      - 4223:4223
+      - 10021:4222
+    volumes:
+      -  "./nats:/etc/nats"
